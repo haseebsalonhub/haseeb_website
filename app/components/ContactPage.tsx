@@ -8,17 +8,33 @@ export default function ContactPage() {
   const formRef = useRef<HTMLFormElement>(null);
   const [loading, setLoading] = useState(false);
 
+  const serviceTitles = [
+    "Hair Colouring",
+    "Hair Styling",
+    "Braids",
+    "Bridal Hair",
+    "Kid's Hair Cut",
+    "Hair Cut",
+    "Hair Highlighting",
+    "Body Waxing",
+    "Shaving",
+    "Detan",
+    "Make-Up",
+    "Pedicure",
+  ];
+
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     if (!formRef.current) return;
 
     const formData = new FormData(formRef.current);
 
-    formData.append("access_key", "47f1dcb8-5be7-4ff3-8c29-09fd95403cff");
+    // Web3Forms config
+    formData.append("access_key", "7c8e9c86-cf3e-450d-aacf-bb0f3de2ed9c");
     formData.append("subject", "New Enquiry – Haseeb Salon Hub");
     formData.append("from_name", "Haseeb Salon Hub Website");
 
-    toast.loading("Sending your message...", { id: "submitToast" });
+    toast.loading("Sending your enquiry...", { id: "submitToast" });
     setLoading(true);
 
     try {
@@ -33,7 +49,11 @@ export default function ContactPage() {
         toast.success("Thank you! We’ll contact you soon 💇‍♀️✨", {
           id: "submitToast",
         });
-        formRef.current.reset();
+
+        // Reset form after success
+        setTimeout(() => {
+          formRef.current?.reset();
+        }, 300);
       } else {
         toast.error(result.message || "Something went wrong 😕", {
           id: "submitToast",
@@ -69,31 +89,31 @@ export default function ContactPage() {
               <span>
                 <strong>Haseeb Salon Hub</strong>
                 <br />
-                Salem Highway, Near Madina Masjid,
+                Salem Highway, NH Service Road, near Madina Masjid,
                 <br />
-                Krishnagiri, Tamil Nadu
+                Gandhi Nagar, Krishnagiri, Tamil Nadu 635002
               </span>
             </li>
 
             <li className="flex items-center gap-4">
               <Phone className="w-6 h-6 text-red-600" />
-              <a href="tel:+919786888800" className="hover:underline">
-                +91 97868 88800
+              <a href="tel:+919952991143" className="hover:underline">
+                +91 99529 91143
               </a>
             </li>
 
             <li className="flex items-center gap-4">
               <Mail className="w-6 h-6 text-red-600" />
               <a
-                href="mailto:info@haseebsalonhub.com"
+                href="mailto:haseebsalonhub@gmail.com"
                 className="hover:underline"
               >
-                info@haseebsalonhub.com
+                haseebsalonhub@gmail.com
               </a>
             </li>
           </ul>
 
-          {/* Social */}
+          {/* Social Icons */}
           <div className="flex gap-6 mt-10">
             <a href="#" className="text-gray-700 hover:text-red-600 transition">
               <Instagram className="w-6 h-6" />
@@ -103,19 +123,20 @@ export default function ContactPage() {
             </a>
           </div>
 
-          {/* Map */}
+          {/* Google Map */}
           <div className="rounded-3xl overflow-hidden shadow-xl h-[300px] mt-12">
             <iframe
-              src="https://www.google.com/maps?q=Krishnagiri+Tamil+Nadu&output=embed"
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3894.9172200367952!2d78.20921797506878!3d12.521642787753887!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bac353355aed6fb%3A0x5c1407a33157575d!2sHaseeb%20Salon%20Hub!5e0!3m2!1sen!2sin!4v1766309856462!5m2!1sen!2sin"
               width="100%"
               height="100%"
               style={{ border: 0 }}
               loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
             />
           </div>
         </div>
 
-        {/* RIGHT – Form */}
+        {/* RIGHT – Appointment Form */}
         <div className="bg-white rounded-3xl shadow-2xl p-10">
           <h3 className="text-3xl font-bold text-center text-red-600 mb-8">
             Book an Appointment
@@ -159,6 +180,25 @@ export default function ContactPage() {
                 placeholder="+91"
                 className="w-full mt-2 px-4 py-3 rounded-xl border border-gray-300 focus:ring-red-600 focus:border-red-600"
               />
+            </div>
+
+            {/* Services Dropdown */}
+            <div>
+              <label className="text-sm font-medium text-gray-800">
+                Service You Are Looking For
+              </label>
+              <select
+                name="service"
+                required
+                className="w-full mt-2 px-4 py-3 rounded-xl border border-gray-300 bg-white focus:ring-red-600 focus:border-red-600"
+              >
+                <option value="">Select a Service</option>
+                {serviceTitles.map((service, index) => (
+                  <option key={index} value={service}>
+                    {service}
+                  </option>
+                ))}
+              </select>
             </div>
 
             <div>

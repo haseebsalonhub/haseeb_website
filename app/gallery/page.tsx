@@ -1,7 +1,130 @@
-import React from "react";
+"use client";
 
-const page = () => {
-  return <div>Gallery page</div>;
+import { motion } from "framer-motion";
+import Image from "next/image";
+import Header from "../components/Header";
+import Footer from "../components/Footer";
+import WhatsAppButton from "../components/WhatsappIcon";
+
+const gallerySections = [
+  {
+    title: "Haircuts & Hairstyling",
+    description:
+      "Modern, classic, and trendsetting hairstyles crafted by experts.",
+    images: [
+      "/services/hair_cut.jpg",
+      "/services/hair_style.jpg",
+      "/services/braids.webp",
+      "/services/kids.jpg",
+    ],
+  },
+  {
+    title: "Bridal & Party Makeup",
+    description: "Flawless makeup looks for weddings and special occasions.",
+    images: [
+      "/services/bridal.jpeg",
+      "/services/bridal.jpeg",
+      "/services/bridal.jpeg",
+    ],
+  },
+  {
+    title: "Before & After Transformations",
+    description: "See the magic of professional styling and beauty care.",
+    images: ["/hero1.jpg", "/hero1.jpg", "/hero1.jpg"],
+  },
+  {
+    title: "Salon Interiors",
+    description:
+      "A hygienic, luxurious, and comfortable ambience for relaxation.",
+    images: ["/hero1.jpg", "/hero1.jpg", "/hero1.jpg"],
+  },
+];
+
+const fadeUp = {
+  hidden: { opacity: 0, y: 40 },
+  visible: { opacity: 1, y: 0 },
 };
 
-export default page;
+export default function GalleryPage() {
+  return (
+    <main className="bg-gray-50 min-h-screen">
+      <Header />
+
+      {/* HERO */}
+      <section className="relative py-24 bg-gradient-to-r from-red-700 via-red-600 to-red-500 text-white text-center">
+        <div className="absolute inset-0 bg-black/40" />
+        <div className="relative z-10 max-w-4xl mx-auto px-6">
+          <motion.h1
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            className="text-4xl md:text-6xl font-extrabold mb-4"
+          >
+            Our Gallery
+          </motion.h1>
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.2 }}
+            className="text-lg text-gray-100"
+          >
+            A glimpse of our craftsmanship, creativity, and premium salon
+            experience
+          </motion.p>
+        </div>
+      </section>
+
+      {/* GALLERY SECTIONS */}
+      <section className="max-w-7xl mx-auto px-6 py-20 space-y-24">
+        {gallerySections.map((section, index) => (
+          <motion.div
+            key={index}
+            variants={fadeUp}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            transition={{ duration: 0.8 }}
+          >
+            {/* Section Header */}
+            <div className="mb-10 text-center">
+              <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-3">
+                {section.title}
+              </h2>
+              <p className="text-gray-600 max-w-2xl mx-auto">
+                {section.description}
+              </p>
+            </div>
+
+            {/* Image Grid */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
+              {section.images.map((img, i) => (
+                <motion.div
+                  key={i}
+                  whileHover={{ scale: 1.04 }}
+                  transition={{ type: "spring", stiffness: 200 }}
+                  className="relative rounded-3xl overflow-hidden shadow-xl group"
+                >
+                  <Image
+                    src={img}
+                    alt={section.title}
+                    width={500}
+                    height={400}
+                    className="w-full h-[300px] object-cover group-hover:scale-110 transition-transform duration-700"
+                  />
+                  {/* Overlay */}
+                  <div className="absolute inset-0 bg-black/30 opacity-0 group-hover:opacity-100 transition duration-500 flex items-center justify-center">
+                    <span className="text-white text-lg font-semibold tracking-wide">
+                      View Style
+                    </span>
+                  </div>
+                </motion.div>
+              ))}
+            </div>
+          </motion.div>
+        ))}
+      </section>
+      <Footer />
+      <WhatsAppButton phoneNumber="919952991143" />
+    </main>
+  );
+}

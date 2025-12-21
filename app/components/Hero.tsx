@@ -1,101 +1,120 @@
 "use client";
 
-import { useEffect, useRef } from "react";
-import Link from "next/link";
+import React, { useEffect, useRef } from "react";
 import gsap from "gsap";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Autoplay, EffectFade } from "swiper/modules";
+import "swiper/css";
+import "swiper/css/effect-fade";
+import { useRouter } from "next/navigation";
+import Image from "next/image";
 
 const Hero = () => {
-  const heroRef = useRef<HTMLDivElement>(null);
+  const headingRef = useRef<HTMLHeadingElement>(null);
+  const taglineRef = useRef<HTMLParagraphElement>(null);
+  const buttonRef = useRef<HTMLButtonElement>(null);
+  const router = useRouter();
 
   useEffect(() => {
-    const ctx = gsap.context(() => {
-      gsap.from(".hero-badge", {
-        y: 20,
-        opacity: 0,
-        duration: 0.8,
-        ease: "power3.out",
-      });
+    const tl = gsap.timeline({ defaults: { ease: "power3.out", duration: 1 } });
 
-      gsap.from(".hero-title span", {
-        y: 80,
-        opacity: 0,
-        stagger: 0.15,
-        duration: 1,
-        ease: "power4.out",
-      });
-
-      gsap.from(".hero-desc", {
-        y: 40,
-        opacity: 0,
-        duration: 0.9,
-        delay: 0.6,
-        ease: "power3.out",
-      });
-
-      gsap.from(".hero-cta", {
-        y: 30,
-        opacity: 0,
-        duration: 0.8,
-        delay: 0.9,
-        ease: "power3.out",
-      });
-    }, heroRef);
-
-    return () => ctx.revert();
+    tl.fromTo(headingRef.current, { y: 50, opacity: 0 }, { y: 0, opacity: 1 })
+      .fromTo(
+        taglineRef.current,
+        { y: 30, opacity: 0 },
+        { y: 0, opacity: 1 },
+        "-=0.4"
+      )
+      .fromTo(
+        buttonRef.current,
+        { scale: 0.8, opacity: 0 },
+        { scale: 1, opacity: 1, duration: 0.6 },
+        "-=0.3"
+      );
   }, []);
 
+  const slides = [
+    {
+      img: "/services/hair_cut.jpg",
+      title: "Premium Care.",
+      subtitle: "Perfect Style.",
+    },
+    {
+      img: "/services/bridal.jpeg",
+      title: "Bridal & Party Elegance",
+      subtitle: "Look flawless on your special day.",
+    },
+    {
+      img: "/services/braids.webp",
+      title: "Luxury Hair Styling",
+      subtitle: "Trendy styles crafted by expert hands.",
+    },
+    {
+      img: "/services/kids.jpg",
+      title: "Complete Family Grooming",
+      subtitle: "Styles for men, women & kids.",
+    },
+  ];
+
   return (
-    <section
-      ref={heroRef}
-      className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-red-700 via-red-600 to-red-500"
-    >
-      {/* Dark overlay */}
-      <div className="absolute inset-0 bg-black/45" />
+    <section className="relative h-screen overflow-hidden">
+      {/* 🔹 Background Slider */}
+      <Swiper
+        modules={[Autoplay, EffectFade]}
+        autoplay={{ delay: 4000, disableOnInteraction: false }}
+        loop
+        speed={1200}
+        effect="fade"
+        className="absolute inset-0 w-full h-full"
+      >
+        {slides.map((slide, i) => (
+          <SwiperSlide key={i} className="w-full h-full">
+            <div className="relative w-full h-full">
+              <Image
+                src={slide.img}
+                alt={slide.title}
+                fill
+                priority={i === 0}
+                className="object-cover"
+              />
 
-      {/* Glow accent */}
-      <div className="absolute -top-40 -right-40 w-[500px] h-[500px] bg-red-500/30 rounded-full blur-3xl animate-pulse" />
+              {/* Overlay */}
+              <div className="absolute inset-0 bg-black/60 z-[1]" />
 
-      {/* Content */}
-      <div className="relative z-10 max-w-5xl text-center px-6">
-        {/* Badge */}
-        <div className="hero-badge inline-block mb-6 px-5 py-2 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-sm text-white tracking-wide">
-          Premium Unisex Salon in Krishnagiri
-        </div>
+              {/* Content */}
+              <div className="absolute inset-0 flex items-center justify-center z-[2] px-6">
+                <div className="text-center max-w-3xl text-white">
+                  <span className="inline-block mb-4 px-5 py-2 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-sm">
+                    Premium Unisex Salon in Krishnagiri
+                  </span>
 
-        {/* Title */}
-        <h1 className="hero-title text-4xl md:text-6xl lg:text-7xl font-extrabold text-white leading-tight mb-6">
-          <span className="block">Premium Care.</span>
-          <span className="block text-red-200">Perfect Style.</span>
-        </h1>
+                  <h1
+                    ref={i === 0 ? headingRef : null}
+                    className="text-4xl md:text-6xl lg:text-7xl font-extrabold leading-tight"
+                  >
+                    {slide.title}
+                  </h1>
 
-        {/* Description */}
-        <p className="hero-desc text-lg md:text-xl text-gray-200 max-w-2xl mx-auto mb-10">
-          Experience expert hair styling, beauty treatments, and grooming
-          services crafted to enhance your confidence in a luxurious, relaxing
-          atmosphere.
-        </p>
+                  <p
+                    ref={i === 0 ? taglineRef : null}
+                    className="text-xl md:text-2xl mt-4 text-gray-200"
+                  >
+                    {slide.subtitle}
+                  </p>
 
-        {/* CTA */}
-        <div className="hero-cta flex flex-col sm:flex-row justify-center gap-5">
-          <Link
-            href="/contact"
-            className="group relative overflow-hidden bg-white text-red-600 px-10 py-4 rounded-full font-semibold shadow-xl"
-          >
-            <span className="relative z-10">Book Appointment</span>
-            <span className="absolute inset-0 bg-red-600 translate-y-full group-hover:translate-y-0 transition-transform duration-300" />
-            <span className="absolute inset-0 text-white flex items-center justify-center opacity-0 group-hover:opacity-100 transition">
-              Book Appointment
-            </span>
-          </Link>
-
-          <Link
-            href="/services"
-            className="px-10 py-4 rounded-full border border-white/70 text-white font-semibold hover:bg-white hover:text-red-600 transition"
-          >
-            Explore Services
-          </Link>
-        </div>
-      </div>
+                  <button
+                    ref={i === 0 ? buttonRef : null}
+                    className="mt-10 bg-white text-red-600 px-10 py-4 rounded-full font-semibold shadow-xl hover:bg-red-600 hover:text-white transition"
+                    onClick={() => router.push("/contact")}
+                  >
+                    Book Appointment
+                  </button>
+                </div>
+              </div>
+            </div>
+          </SwiperSlide>
+        ))}
+      </Swiper>
     </section>
   );
 };

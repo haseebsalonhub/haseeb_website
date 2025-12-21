@@ -4,6 +4,8 @@ import Link from "next/link";
 import { motion } from "framer-motion";
 import { Menu, X } from "lucide-react";
 import { useState } from "react";
+import Image from "next/image";
+import { usePathname } from "next/navigation";
 
 const navItems = [
   { name: "Home", href: "/" },
@@ -15,6 +17,7 @@ const navItems = [
 
 const Header = () => {
   const [open, setOpen] = useState(false);
+  const pathname = usePathname();
 
   return (
     <header className="fixed top-0 left-0 w-full z-50">
@@ -22,32 +25,52 @@ const Header = () => {
       <div className="backdrop-blur-xl bg-white/80 border-b border-gray-200 shadow-sm">
         <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
           {/* Logo */}
-          <Link href="/" className="relative group">
-            <h1 className="text-2xl font-extrabold text-gray-900 tracking-wide">
-              Haseeb
-              <span className="text-red-600 ml-1">Salon Hub</span>
-            </h1>
-            <span className="absolute -bottom-1 left-0 w-0 h-[2px] bg-red-600 transition-all group-hover:w-full"></span>
+          <Link href="/" className="relative group flex items-center">
+            <Image
+              src="/logo_haseeb.png"
+              alt="Haseeb Salon Hub"
+              width={80}
+              height={20}
+              priority
+              className="object-contain"
+            />
           </Link>
 
-          {/* Desktop Nav */}
+          {/* Desktop Navigation */}
           <nav className="hidden md:flex items-center gap-10">
-            {navItems.map((item, i) => (
-              <motion.div
-                key={item.name}
-                whileHover={{ y: -2 }}
-                transition={{ type: "spring", stiffness: 300 }}
-                className="relative group"
-              >
-                <Link
-                  href={item.href}
-                  className="text-gray-700 font-medium tracking-wide"
+            {navItems.map((item) => {
+              const isActive =
+                item.href === "/"
+                  ? pathname === "/"
+                  : pathname.startsWith(item.href);
+
+              return (
+                <motion.div
+                  key={item.name}
+                  whileHover={{ y: -2 }}
+                  transition={{ type: "spring", stiffness: 300 }}
+                  className="relative group"
                 >
-                  {item.name}
-                </Link>
-                <span className="absolute left-0 -bottom-1 h-[2px] w-0 bg-red-600 transition-all group-hover:w-full"></span>
-              </motion.div>
-            ))}
+                  <Link
+                    href={item.href}
+                    className={`font-medium tracking-wide transition ${
+                      isActive
+                        ? "text-red-600"
+                        : "text-gray-700 hover:text-red-600"
+                    }`}
+                  >
+                    {item.name}
+                  </Link>
+
+                  {/* Active underline */}
+                  <span
+                    className={`absolute left-0 -bottom-1 h-[2px] bg-red-600 transition-all duration-300 ${
+                      isActive ? "w-full" : "w-0 group-hover:w-full"
+                    }`}
+                  />
+                </motion.div>
+              );
+            })}
           </nav>
 
           {/* CTA */}
@@ -79,19 +102,31 @@ const Header = () => {
           className="md:hidden bg-white shadow-xl border-t"
         >
           <nav className="flex flex-col items-center gap-6 py-8">
-            {navItems.map((item) => (
-              <Link
-                key={item.name}
-                href={item.href}
-                onClick={() => setOpen(false)}
-                className="text-lg font-medium text-gray-800 hover:text-red-600 transition"
-              >
-                {item.name}
-              </Link>
-            ))}
+            {navItems.map((item) => {
+              const isActive =
+                item.href === "/"
+                  ? pathname === "/"
+                  : pathname.startsWith(item.href);
+
+              return (
+                <Link
+                  key={item.name}
+                  href={item.href}
+                  onClick={() => setOpen(false)}
+                  className={`text-lg font-medium transition ${
+                    isActive
+                      ? "text-red-600"
+                      : "text-gray-800 hover:text-red-600"
+                  }`}
+                >
+                  {item.name}
+                </Link>
+              );
+            })}
 
             <Link
               href="/contact"
+              onClick={() => setOpen(false)}
               className="mt-4 bg-red-600 text-white px-8 py-3 rounded-full font-semibold shadow-lg"
             >
               Book Now

@@ -21,11 +21,11 @@ export default function Home() {
     initLenis();
 
     const ctx = gsap.context(() => {
-      /* 🔥 SECTION DEPTH REVEAL */
+      /* 🔥 SECTION REVEAL */
       gsap.utils.toArray<HTMLElement>(".scroll-section").forEach((section) => {
         gsap.fromTo(
           section,
-          { opacity: 0, y: 120, scale: 0.95 },
+          { opacity: 0, y: 120, scale: 0.96 },
           {
             opacity: 1,
             y: 0,
@@ -40,7 +40,7 @@ export default function Home() {
         );
       });
 
-      /* ✨ STAGGER CONTENT */
+      /* ✨ STAGGER GROUPS */
       gsap.utils.toArray<HTMLElement>(".stagger-group").forEach((group) => {
         gsap.from(group.children, {
           opacity: 0,
@@ -70,7 +70,7 @@ export default function Home() {
         );
       });
 
-      /* 🎨 SCROLL COLOR SHIFT */
+      /* 🎨 BACKGROUND COLOR SHIFT */
       gsap.to("body", {
         backgroundColor: "#fff5f5",
         scrollTrigger: {
@@ -86,7 +86,7 @@ export default function Home() {
   }, []);
 
   return (
-    <main className="min-h-screen overflow-hidden">
+    <main className="min-h-screen overflow-x-hidden">
       <Header />
       <Hero />
 

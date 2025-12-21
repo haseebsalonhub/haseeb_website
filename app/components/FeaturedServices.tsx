@@ -6,22 +6,82 @@ import Link from "next/link";
 
 const services = [
   {
-    title: "Hair Care & Styling",
+    title: "Hair Colouring",
     desc: "Professional haircuts, styling, coloring & treatments.",
-    image: "/hero1.jpg",
+    image: "/services/hair_colouring.jpg",
   },
   {
-    title: "Beauty & Skin Care",
+    title: "Hair Stylling",
     desc: "Facials, skincare treatments & beauty services.",
-    image: "/hero1.jpg",
+    image: "/services/hair_style.jpg",
   },
   {
-    title: "Grooming for Men & Women",
+    title: "Braids",
     desc: "Complete grooming services for a confident look.",
+    image: "/services/braids.webp",
+  },
+  {
+    title: "Bridal hair",
+    desc: "Elegant bridal & party makeup for special moments.",
+    image: "/services/bridal.jpeg",
+  },
+  {
+    title: "Kid's Hair Cut",
+    desc: "Elegant bridal & party makeup for special moments.",
+    image: "/services/kids.jpg",
+  },
+  {
+    title: "Hair Cut ",
+    desc: "Elegant bridal & party makeup for special moments.",
+    image: "/services/hair_cut.jpg",
+  },
+  {
+    title: "Hair Highlighting",
+    desc: "Elegant bridal & party makeup for special moments.",
     image: "/hero1.jpg",
   },
   {
-    title: "Bridal & Occasion Makeup",
+    title: "Body Waxing",
+    desc: "Elegant bridal & party makeup for special moments.",
+    image: "/hero1.jpg",
+  },
+  {
+    title: "Shaving",
+    desc: "Elegant bridal & party makeup for special moments.",
+    image: "/hero1.jpg",
+  },
+  {
+    title: "Detan",
+    desc: "Elegant bridal & party makeup for special moments.",
+    image: "/hero1.jpg",
+  },
+  {
+    title: "Make-Up",
+    desc: "Elegant bridal & party makeup for special moments.",
+    image: "/hero1.jpg",
+  },
+  {
+    title: "Pedicure",
+    desc: "Elegant bridal & party makeup for special moments.",
+    image: "/hero1.jpg",
+  },
+  {
+    title: "Manicure",
+    desc: "Elegant bridal & party makeup for special moments.",
+    image: "/hero1.jpg",
+  },
+  {
+    title: "Eyebrow Threading",
+    desc: "Elegant bridal & party makeup for special moments.",
+    image: "/hero1.jpg",
+  },
+  {
+    title: "Bridal Services",
+    desc: "Elegant bridal & party makeup for special moments.",
+    image: "/hero1.jpg",
+  },
+  {
+    title: "Head Massage",
     desc: "Elegant bridal & party makeup for special moments.",
     image: "/hero1.jpg",
   },
