@@ -13,6 +13,7 @@ import WhyChooseUs from "./components/WhyChooseUs";
 import Testimonials from "./components/Testimonials";
 import ContactPage from "./components/ContactPage";
 import WhatsAppButton from "./components/WhatsappIcon";
+import ExpertTeam from "./components/ExpertTeam";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -89,16 +90,21 @@ export default function Home() {
     <main className="min-h-screen overflow-x-hidden">
       <Header />
       <Hero />
-
-      <section className="scroll-section stagger-group">
-        <FeaturedServices />
-      </section>
-
       <section
         id="why-choose-us"
         className="scroll-section stagger-group parallax"
       >
         <WhyChooseUs />
+      </section>
+
+      <section className="scroll-section stagger-group">
+        <FeaturedServices />
+      </section>
+      <section
+        id="why-choose-us"
+        className="scroll-section stagger-group parallax"
+      >
+        <ExpertTeam />
       </section>
 
       <section className="scroll-section stagger-group">
