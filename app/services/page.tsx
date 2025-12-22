@@ -31,7 +31,7 @@ const serviceSections = [
       {
         title: "Hair Highlighting",
         desc: "Enhance your look with natural and vibrant highlights.",
-        image: "/services/hair_colouring.jpg",
+        image: "/services/hair_light.jpg",
       },
       {
         title: "Braids",
@@ -53,32 +53,32 @@ const serviceSections = [
       {
         title: "Detan",
         desc: "Remove tan and restore your natural skin tone.",
-        image: "/hero1.jpg",
+        image: "/services/detan.jpg",
       },
       {
         title: "Facial Treatments",
         desc: "Deep cleansing and glow-enhancing facial services.",
-        image: "/hero1.jpg",
+        image: "/services/facial.jpg",
       },
       {
         title: "Pedicure",
         desc: "Relaxing foot care for soft, healthy, and beautiful feet.",
-        image: "/hero1.jpg",
+        image: "/services/pedicure.jpg",
       },
       {
         title: "Manicure",
         desc: "Professional hand and nail care for a polished look.",
-        image: "/hero1.jpg",
+        image: "/services/manicur.jpg",
       },
       {
         title: "Body Waxing",
         desc: "Smooth and hygienic hair removal with premium wax.",
-        image: "/hero1.jpg",
+        image: "/services/waxing.jpg",
       },
       {
         title: "Eyebrow Threading",
         desc: "Perfectly shaped eyebrows to enhance facial features.",
-        image: "/hero1.jpg",
+        image: "/services/eye_thread.jpg",
       },
     ],
   },
@@ -95,12 +95,12 @@ const serviceSections = [
       {
         title: "Party Makeup",
         desc: "Glamorous makeup looks for parties and celebrations.",
-        image: "/services/bridal.jpeg",
+        image: "/services/party.jpg",
       },
       {
         title: "Engagement Makeup",
         desc: "Soft and elegant makeup for engagement ceremonies.",
-        image: "/services/bridal.jpeg",
+        image: "/services/engagement.jpg",
       },
     ],
   },
@@ -112,17 +112,17 @@ const serviceSections = [
       {
         title: "Shaving",
         desc: "Clean and comfortable shaving by skilled professionals.",
-        image: "/hero1.jpg",
+        image: "/services/shaving.jpg",
       },
       {
         title: "Head Massage",
         desc: "Relaxing head massage to relieve stress and boost circulation.",
-        image: "/hero1.jpg",
+        image: "/services/hair_wash.jpg",
       },
       {
         title: "Beard Grooming",
         desc: "Expert beard trimming and shaping for a sharp look.",
-        image: "/hero1.jpg",
+        image: "/services/beard_grooming.jpg",
       },
     ],
   },

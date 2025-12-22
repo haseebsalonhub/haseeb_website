@@ -18,42 +18,62 @@ const Footer = () => {
           <h3 className="text-lg font-semibold mb-4">Quick Links</h3>
           <ul className="space-y-2 text-sm text-red-100">
             <li>
-              <Link href="/" className="hover:text-white">
+              <Link href="/" className="hover:text-white transition">
                 Home
               </Link>
             </li>
             <li>
-              <Link href="/about" className="hover:text-white">
+              <Link href="/about" className="hover:text-white transition">
                 About
               </Link>
             </li>
             <li>
-              <Link href="/services" className="hover:text-white">
+              <Link href="/services" className="hover:text-white transition">
                 Services
               </Link>
             </li>
             <li>
-              <Link href="/gallery" className="hover:text-white">
+              <Link href="/gallery" className="hover:text-white transition">
                 Gallery
               </Link>
             </li>
             <li>
-              <Link href="/contact" className="hover:text-white">
+              <Link href="/contact" className="hover:text-white transition">
                 Contact
               </Link>
             </li>
           </ul>
         </div>
 
-        {/* Services */}
+        {/* Services (Clickable → /services) */}
         <div>
           <h3 className="text-lg font-semibold mb-4">Our Services</h3>
           <ul className="space-y-2 text-sm text-red-100">
-            <li>Haircuts & Styling</li>
-            <li>Beauty & Skincare</li>
-            <li>Bridal Makeup</li>
-            <li>Grooming Services</li>
-            <li>Massage & Relaxation</li>
+            <li>
+              <Link href="/services" className="hover:text-white transition">
+                Haircuts & Styling
+              </Link>
+            </li>
+            <li>
+              <Link href="/services" className="hover:text-white transition">
+                Beauty & Skincare
+              </Link>
+            </li>
+            <li>
+              <Link href="/services" className="hover:text-white transition">
+                Bridal Makeup
+              </Link>
+            </li>
+            <li>
+              <Link href="/services" className="hover:text-white transition">
+                Grooming Services
+              </Link>
+            </li>
+            <li>
+              <Link href="/services" className="hover:text-white transition">
+                Massage & Relaxation
+              </Link>
+            </li>
           </ul>
         </div>
 
@@ -62,12 +82,16 @@ const Footer = () => {
           <h3 className="text-lg font-semibold mb-4">Contact Us</h3>
           <ul className="space-y-3 text-sm text-red-100">
             <li>
-              📍 Salem Highway, Near Madina Masjid,
+              📍 Salem Highway, NH Service Road,
               <br />
-              Krishnagiri, Tamil Nadu
+              near Madina Masjid,
+              <br />
+              Gandhi Nagar, Krishnagiri,
+              <br />
+              Tamil Nadu 635002
             </li>
-            <li>📞 +91 97868 88800</li>
-            <li>⏰ 9:00 AM – 9:00 PM</li>
+            <li>📞 +91 99529 91143</li>
+            <li>⏰ 10:00 AM – 10:00 PM</li>
           </ul>
         </div>
       </div>

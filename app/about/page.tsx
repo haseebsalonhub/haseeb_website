@@ -57,26 +57,24 @@ export default function AboutPage() {
   return (
     <main className="bg-gradient-to-b from-white to-gray-50 overflow-hidden">
       <Header />
-      {/* HERO */}
-      <section className="relative py-24 px-6 text-center">
+      {/* ABOUT HERO */}
+      <section className="py-28 text-center relative overflow-hidden">
+        {/* Glow */}
+        <div className="absolute -top-40 -right-40 w-[500px] h-[500px] bg-red-600/20 rounded-full blur-3xl" />
+
         <motion.h1
           initial={{ opacity: 0, y: 40 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
-          className="text-4xl md:text-6xl font-extrabold text-gray-900 mt-8"
+          className="text-4xl md:text-6xl font-extrabold text-gray-900 mb-6"
         >
           About <span className="text-red-600">Haseeb Salon Hub</span>
         </motion.h1>
 
-        <motion.p
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.2 }}
-          className="mt-6 max-w-2xl mx-auto text-lg text-gray-600"
-        >
+        <p className="text-gray-600 max-w-2xl mx-auto text-lg">
           A premium unisex salon in Krishnagiri delivering expert hair, beauty,
-          and grooming services with passion and precision.
-        </motion.p>
+          and grooming services with passion, hygiene, and precision.
+        </p>
       </section>
 
       {/* COMPANY STORY – PREMIUM VERSION */}

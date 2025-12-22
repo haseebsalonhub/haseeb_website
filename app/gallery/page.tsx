@@ -50,28 +50,24 @@ export default function GalleryPage() {
     <main className="bg-gray-50 min-h-screen">
       <Header />
 
-      {/* HERO */}
-      <section className="relative py-24 bg-gradient-to-r from-red-700 via-red-600 to-red-500 text-white text-center">
-        <div className="absolute inset-0 bg-black/40" />
-        <div className="relative z-10 max-w-4xl mx-auto px-6">
-          <motion.h1
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            className="text-4xl md:text-6xl font-extrabold mb-4"
-          >
-            Our Gallery
-          </motion.h1>
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.2 }}
-            className="text-lg text-gray-100"
-          >
-            A glimpse of our craftsmanship, creativity, and premium salon
-            experience
-          </motion.p>
-        </div>
+      {/* GALLERY HERO */}
+      <section className="py-28 text-center relative overflow-hidden">
+        {/* Glow */}
+        <div className="absolute -top-40 -right-40 w-[500px] h-[500px] bg-red-600/20 rounded-full blur-3xl" />
+
+        <motion.h1
+          initial={{ opacity: 0, y: 40 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+          className="text-4xl md:text-6xl font-extrabold text-gray-900 mb-6"
+        >
+          Our <span className="text-red-600">Gallery</span>
+        </motion.h1>
+
+        <p className="text-gray-600 max-w-2xl mx-auto text-lg">
+          Explore our finest haircuts, bridal makeovers, transformations, and
+          premium salon interiors.
+        </p>
       </section>
 
       {/* GALLERY SECTIONS */}
