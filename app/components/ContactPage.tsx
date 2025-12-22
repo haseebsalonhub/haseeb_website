@@ -115,10 +115,20 @@ export default function ContactPage() {
 
           {/* Social Icons */}
           <div className="flex gap-6 mt-10">
-            <a href="#" className="text-gray-700 hover:text-red-600 transition">
+            <a
+              href="https://www.instagram.com/haseeb_salon_hub?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-gray-700 hover:text-red-600 transition"
+            >
               <Instagram className="w-6 h-6" />
             </a>
-            <a href="#" className="text-gray-700 hover:text-red-600 transition">
+            <a
+              href="#"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-gray-700 hover:text-red-600 transition"
+            >
               <Facebook className="w-6 h-6" />
             </a>
           </div>
