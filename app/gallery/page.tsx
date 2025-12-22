@@ -21,11 +21,7 @@ const gallerySections = [
   {
     title: "Bridal & Party Makeup",
     description: "Flawless makeup looks for weddings and special occasions.",
-    images: [
-      "/services/bridal.jpeg",
-      "/services/bridal.jpeg",
-      "/services/bridal.jpeg",
-    ],
+    images: ["/haseeb8.jpg", "/services/bridal.jpeg", "/services/bridal.jpeg"],
   },
   {
     title: "Before & After Transformations",

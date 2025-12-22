@@ -151,7 +151,7 @@ export default function AboutPage() {
 
             <div className="relative rounded-3xl overflow-hidden shadow-2xl">
               <img
-                src="/hero1.jpg"
+                src="/haseeb4.jpeg"
                 alt="Haseeb Salon Hub"
                 className="w-full h-full object-cover scale-105 group-hover:scale-110 transition-transform duration-700"
               />

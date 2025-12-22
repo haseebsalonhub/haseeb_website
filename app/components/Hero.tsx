@@ -35,22 +35,22 @@ const Hero = () => {
 
   const slides = [
     {
-      img: "/services/hair_cut.jpg",
+      img: "/haseeb4.jpeg",
       title: "Premium Care.",
       subtitle: "Perfect Style.",
     },
     {
-      img: "/services/bridal.jpeg",
+      img: "/haseeb_front.jpeg",
       title: "Bridal & Party Elegance",
       subtitle: "Look flawless on your special day.",
     },
     {
-      img: "/services/braids.webp",
+      img: "/haseeb3.jpeg",
       title: "Luxury Hair Styling",
       subtitle: "Trendy styles crafted by expert hands.",
     },
     {
-      img: "/services/kids.jpg",
+      img: "/haseeb2.jpeg",
       title: "Complete Family Grooming",
       subtitle: "Styles for men, women & kids.",
     },
