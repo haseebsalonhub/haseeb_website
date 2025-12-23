@@ -91,7 +91,7 @@ const Footer = () => {
               Tamil Nadu 635002
             </li>
             <li>📞 +91 99529 91143</li>
-            <li>⏰ 10:00 AM – 10:00 PM</li>
+            <li>⏰ 07:00 AM – 10:00 PM</li>
           </ul>
         </div>
       </div>
