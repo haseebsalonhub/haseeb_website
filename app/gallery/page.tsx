@@ -12,27 +12,21 @@ const gallerySections = [
     description:
       "Modern, classic, and trendsetting hairstyles crafted by experts.",
     images: [
-      "/services/hair_cut.jpg",
-      "/services/hair_style.jpg",
-      "/services/braids.webp",
-      "/services/kids.jpg",
+      "/gallery/gallery1.jpg",
+      "/gallery/gallery2.jpg",
+      "/gallery/gallery3.jpg",
     ],
   },
   {
     title: "Bridal & Party Makeup",
     description: "Flawless makeup looks for weddings and special occasions.",
-    images: ["/haseeb8.jpg", "/services/bridal.jpeg", "/services/bridal.jpeg"],
+    images: ["/haseeb8.jpg", "/gallery/braid2.webp", "/services/bridal.jpeg"],
   },
   {
-    title: "Before & After Transformations",
-    description: "See the magic of professional styling and beauty care.",
-    images: ["/hero1.jpg", "/hero1.jpg", "/hero1.jpg"],
-  },
-  {
-    title: "Salon Interiors",
+    title: "Salon Interiors & Exteriors",
     description:
       "A hygienic, luxurious, and comfortable ambience for relaxation.",
-    images: ["/hero1.jpg", "/hero1.jpg", "/hero1.jpg"],
+    images: ["/gallery/gallery4.jpeg", "/haseeb_front.jpeg", "/haseeb2.jpeg"],
   },
 ];
 
