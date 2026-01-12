@@ -17,6 +17,11 @@ export const metadata: Metadata = {
   title: "Haseeb Salon Hub | Premium Unisex Salon in Krishnagiri",
   description:
     "Haseeb Salon Hub is a premium unisex salon in Krishnagiri offering expert hair, beauty, and grooming services.",
+
+  // ✅ Facebook Domain Verification
+  other: {
+    "facebook-domain-verification": "9af0kw061m7tf4svfceiecy3e3fjmu",
+  },
 };
 
 export default function RootLayout({
